@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en-US">
+    <head>
+        <meta charset="utf-8">
+        <title>Manipulating Excel with PHPExcel</title>
+        <meta name="viewport" content="width=device-width">
+
+        <!-- Bootstrap styles -->
+        <link rel="stylesheet" href="css/bootstrap.min.css">
+    </head>
+    <body>
+        <div class="container">
+            <h2>Manipulating Excel with PHPExcel</h2>
+            <p>In this demo, we will explore the following key functions in PHPExcel:</p>
+            <ul>
+                <li>Create an Excel instance</li>
+                <li>Populate a worksheet with data from a database</li>
+                <li>Use formulas to do further analysis</li>
+                <li>Create a chart based on the data</li>
+            </ul>
+        </div>
+        <hr>
+        <div class="container">
+            <p>The data goes here (to save display space, just the first 15 records are shown).</p>
+            <form action="export" method="POST" class="form-inline">
+                <input type="submit" value="Export to Excel"/>
+            </form>
+            <table class="table table-striped">
+                <tr>
+                    <td>ID</td>
+                    <td>Date</td>
+                    <td>Team</td>
+                    <td>Scores</td>
+                    <td>Win/Lose</td>
+                    <td>Remark</td>
+                </tr>
+                {% set index=1 %}
+                {% for game in data %}
+                    {% set index=index+1 %}
+                    {% if index <=15 %}
+                        <tr>
+                            <td>{{game.id}}</td>
+                            <td>{{game.dateplayed}}</td>
+                            <td>{{game.team}}</td>
+                            <td>{{game.selfscore}} : {{game.oppscore}}</td>
+                            <td>{{game.winlose}}</td>
+                            <td>{{game.remark}}</td>
+                        </tr>
+                    {% endif %}
+                {% endfor %}
+            </table>
+        </div>
+
+    </body>
+</html>
+
