@@ -183,12 +183,15 @@ namespace trExcel
             $title=new \PHPExcel_Chart_Title($ews->getTitle());
             $dsl=array(
                 new \PHPExcel_Chart_DataSeriesValues('String', 'Data!$D$1', NULL, 1),
+                new \PHPExcel_Chart_DataSeriesValues('String', 'Data!$E$1', NULL, 1),
+                
             );
             $xal=array(
                 new \PHPExcel_Chart_DataSeriesValues('String', 'Data!$F$2:$F$91', NULL, 90),
             );
             $dsv=array(
                 new \PHPExcel_Chart_DataSeriesValues('Number', 'Data!$D$2:$D$91', NULL, 90),
+                new \PHPExcel_Chart_DataSeriesValues('Number', 'Data!$E$2:$E$91', NULL, 90),
             );
             
             $ds=new \PHPExcel_Chart_DataSeries(
@@ -202,10 +205,12 @@ namespace trExcel
                     );
             
             $pa=new \PHPExcel_Chart_PlotArea(NULL, array($ds));
+            // Set legend
+            $legend=new \PHPExcel_Chart_Legend(\PHPExcel_Chart_Legend::POSITION_RIGHT, NULL, false);
             $chart=new \PHPExcel_Chart(
                     'Chart1',
                     $title,
-                    NULL,
+                    $legend,
                     $pa,
                     true,
                     0,
