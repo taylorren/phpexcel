@@ -146,7 +146,7 @@ namespace trExcel
             // Build a dataserie
             $ds = new \PHPExcel_Chart_DataSeries(
                     \PHPExcel_Chart_DataSeries::TYPE_PIECHART, 
-                    \phpexcel_chart_dataseries::GROUPING_STANDARD, 
+                    null, 
                     range(0, count($dsv)-1), 
                     $dsl, 
                     $xal, 
