@@ -174,7 +174,7 @@ namespace trExcel
                     );
             
             $chart->setTopLeftPosition('K1');
-            $chart->setBottomRightPosition('M5');
+            $chart->setBottomRightPosition('U30');
             $ews->addChart($chart);
         }
         

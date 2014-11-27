@@ -8,6 +8,7 @@ ini_set('display_startup_errors', TRUE);
 require_once 'vendor/autoload.php';
 require_once 'classExcel.php';
 
+use Symfony\Component\HttpFoundation\Request;
 
 $app=new Silex\Application();
 $app['debug']=true;
